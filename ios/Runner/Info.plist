@@ -22,19 +22,18 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
-	<array>        <dict>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>CFBundleURLName</key>
-        <string>edited_by_v</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-        <string></string>
-        </array>
+	<array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.googleusercontent.apps.11297906909-kbuh9s8p4v8e8nhrcfth4ko9is2dt0di</string>
+                
+            </array>
         </dict>
+
     </array>
-    <key>FlutterDeepLinkingEnabled</key>
-    <true/>
 
 
 	<key>CFBundleVersion</key>
