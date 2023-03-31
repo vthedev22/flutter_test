@@ -59,7 +59,7 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                     width: MediaQuery.of(context).size.width * 0.8,
                     height: MediaQuery.of(context).size.height * 0.5,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).tertiaryColor,
+                      color: FlutterFlowTheme.of(context).tertiary,
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 4.0,
@@ -83,7 +83,7 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                               Text(
                                 'Pop up Header',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Work Sans',
                                       color: FlutterFlowTheme.of(context)
@@ -104,7 +104,7 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                               Text(
                                 'Hello World sdsdsdsfdf ssdf',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Work Sans',
                                       color: FlutterFlowTheme.of(context)
@@ -133,14 +133,14 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
+                                  color: FlutterFlowTheme.of(context).secondary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Work Sans',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -148,9 +148,6 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                   hoverColor:
                                       FlutterFlowTheme.of(context).profit,
-                                  hoverBorderSide: BorderSide(
-                                    width: 1.0,
-                                  ),
                                   hoverTextColor: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
@@ -179,11 +176,12 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).alternate,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Work Sans',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -191,9 +189,6 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                   hoverColor:
                                       FlutterFlowTheme.of(context).profit,
-                                  hoverBorderSide: BorderSide(
-                                    width: 1.0,
-                                  ),
                                   hoverTextColor: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
@@ -212,11 +207,12 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).profit,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Work Sans',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -224,9 +220,6 @@ class _PopUPWidgetState extends State<PopUPWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                   hoverColor:
                                       FlutterFlowTheme.of(context).profit,
-                                  hoverBorderSide: BorderSide(
-                                    width: 1.0,
-                                  ),
                                   hoverTextColor: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),

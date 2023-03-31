@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/phone_login/phone_login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,7 +60,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          FlutterFlowTheme.of(context).tertiaryColor,
+                          FlutterFlowTheme.of(context).tertiary,
                           FlutterFlowTheme.of(context).primaryText
                         ],
                         stops: [0.0, 1.0],
@@ -71,38 +72,70 @@ class _SplashWidgetState extends State<SplashWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 80.0,
-                                height: 80.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
+                          child: InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PhoneLoginWidget(),
                                 ),
-                                child: SvgPicture.asset(
-                                  'assets/images/logo-sp.svg',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'smartbags',
-                                  style: FlutterFlowTheme.of(context)
-                                      .title2
-                                      .override(
-                                        fontFamily: 'Work Sans',
-                                        color:
-                                            FlutterFlowTheme.of(context).profit,
-                                        fontSize: 40.0,
+                              );
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            PhoneLoginWidget(),
                                       ),
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 80.0,
+                                    height: 80.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      'assets/images/logo-sp.svg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              PhoneLoginWidget(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      'smartbags',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .override(
+                                            fontFamily: 'Work Sans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .profit,
+                                            fontSize: 40.0,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],

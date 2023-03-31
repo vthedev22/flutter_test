@@ -16,7 +16,6 @@ class FFAppState extends ChangeNotifier {
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
-    _fsadfsafd = prefs.getStringList('ff_fsadfsafd') ?? _fsadfsafd;
   }
 
   void update(VoidCallback callback) {
@@ -26,26 +25,16 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  List<String> _fsadfsafd = [];
-  List<String> get fsadfsafd => _fsadfsafd;
-  set fsadfsafd(List<String> _value) {
-    _fsadfsafd = _value;
-    prefs.setStringList('ff_fsadfsafd', _value);
+  String _apiKey = '';
+  String get apiKey => _apiKey;
+  set apiKey(String _value) {
+    _apiKey = _value;
   }
 
-  void addToFsadfsafd(String _value) {
-    _fsadfsafd.add(_value);
-    prefs.setStringList('ff_fsadfsafd', _fsadfsafd);
-  }
-
-  void removeFromFsadfsafd(String _value) {
-    _fsadfsafd.remove(_value);
-    prefs.setStringList('ff_fsadfsafd', _fsadfsafd);
-  }
-
-  void removeAtIndexFromFsadfsafd(int _index) {
-    _fsadfsafd.removeAt(_index);
-    prefs.setStringList('ff_fsadfsafd', _fsadfsafd);
+  String _secretKey = '';
+  String get secretKey => _secretKey;
+  set secretKey(String _value) {
+    _secretKey = _value;
   }
 }
 

@@ -51,12 +51,12 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
             pinned: true,
             floating: false,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            iconTheme: IconThemeData(
-                color: FlutterFlowTheme.of(context).tertiaryColor),
+            iconTheme:
+                IconThemeData(color: FlutterFlowTheme.of(context).tertiary),
             automaticallyImplyLeading: true,
             title: Text(
               'smartbags',
-              style: FlutterFlowTheme.of(context).title2.override(
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Work Sans',
                     color: FlutterFlowTheme.of(context).profit,
                   ),
@@ -86,7 +86,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                             Text(
                               'Add Stocks to your',
                               textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -94,7 +94,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                               child: Text(
                                 'nameOfPie',
                                 textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ],
@@ -111,8 +111,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                               width: MediaQuery.of(context).size.width * 1.0,
                               height: 590.0,
                               decoration: BoxDecoration(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 4.0,
@@ -140,7 +139,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                           height: 170.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiaryColor,
+                                                .tertiary,
                                             boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 4.0,
@@ -196,7 +195,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                                       .center,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText2
+                                                                  .bodySmall
                                                                   .override(
                                                                     fontFamily:
                                                                         'Work Sans',
@@ -216,7 +215,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .title2
+                                                              .headlineMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Work Sans',
@@ -273,13 +272,14 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .subtitle2
+                                                                      .titleSmall
                                                                       .override(
                                                                         fontFamily:
                                                                             'Work Sans',
                                                                         color: Colors
                                                                             .white,
                                                                       ),
+                                                              elevation: 2.0,
                                                               borderSide:
                                                                   BorderSide(
                                                                 color: Colors
@@ -294,10 +294,6 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .profit,
-                                                              hoverBorderSide:
-                                                                  BorderSide(
-                                                                width: 1.0,
-                                                              ),
                                                               hoverTextColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -310,7 +306,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                                 .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .title1
+                                                                .displaySmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Work Sans',
@@ -351,7 +347,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .subtitle2
+                                                                      .titleSmall
                                                                       .override(
                                                                         fontFamily:
                                                                             'Work Sans',
@@ -360,6 +356,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                                         fontSize:
                                                                             13.0,
                                                                       ),
+                                                              elevation: 2.0,
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
@@ -376,7 +373,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2
+                                                              .bodySmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Work Sans',
@@ -400,7 +397,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .title2
+                                                                .headlineMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Work Sans',
@@ -437,7 +434,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                           child: Text(
                                             'SELL Indicator: 25%',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Work Sans',
                                                   fontSize: 16.0,
@@ -452,7 +449,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                           child: Icon(
                                             Icons.edit_sharp,
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiaryColor,
+                                                .tertiary,
                                             size: 18.0,
                                           ),
                                         ),
@@ -470,7 +467,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                         Text(
                                           'Stock(s) in this Pie',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 fontWeight: FontWeight.normal,
@@ -503,7 +500,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .tertiaryColor,
+                                                        .tertiary,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             25.0),
@@ -511,7 +508,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .tertiaryColor,
+                                                              .tertiary,
                                                       width: 1.0,
                                                     ),
                                                   ),
@@ -531,7 +528,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                           'BTC',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Work Sans',
@@ -548,7 +545,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                           '20',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Work Sans',
@@ -592,7 +589,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               color: enabled
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .tertiaryColor
+                                                                      .tertiary
                                                                   : Color(
                                                                       0xFFEEEEEE),
                                                               size: 15.0,
@@ -605,7 +602,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               color: enabled
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryColor
+                                                                      .secondary
                                                                   : Color(
                                                                       0xFFEEEEEE),
                                                               size: 15.0,
@@ -615,7 +612,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               count.toString(),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .subtitle2,
+                                                                  .titleSmall,
                                                             ),
                                                             count: _model
                                                                 .countControllerValue1 ??= 0,
@@ -656,7 +653,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                         Text(
                                           'Your Stocks',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
                                         ),
                                       ],
                                     ),
@@ -710,7 +707,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                           'ETH',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Work Sans',
@@ -724,7 +721,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                           '10',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Work Sans',
@@ -765,7 +762,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               color: enabled
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .tertiaryColor
+                                                                      .tertiary
                                                                   : Color(
                                                                       0xFFEEEEEE),
                                                               size: 15.0,
@@ -778,7 +775,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               color: enabled
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryColor
+                                                                      .secondary
                                                                   : Color(
                                                                       0xFFEEEEEE),
                                                               size: 15.0,
@@ -788,7 +785,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               count.toString(),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .subtitle2,
+                                                                  .titleSmall,
                                                             ),
                                                             count: _model
                                                                 .countControllerValue2 ??= 0,
@@ -866,7 +863,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                           'USDT',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Work Sans',
@@ -880,7 +877,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                           '50',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Work Sans',
@@ -921,7 +918,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               color: enabled
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .tertiaryColor
+                                                                      .tertiary
                                                                   : Color(
                                                                       0xFFEEEEEE),
                                                               size: 15.0,
@@ -934,7 +931,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               color: enabled
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryColor
+                                                                      .secondary
                                                                   : Color(
                                                                       0xFFEEEEEE),
                                                               size: 15.0,
@@ -944,7 +941,7 @@ class _StocksAddedWidgetState extends State<StocksAddedWidget> {
                                                               count.toString(),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .subtitle2,
+                                                                  .titleSmall,
                                                             ),
                                                             count: _model
                                                                 .countControllerValue3 ??= 0,

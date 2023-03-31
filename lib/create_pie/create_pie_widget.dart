@@ -1,6 +1,11 @@
+import '/auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/ifttt/ifttt_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -54,12 +59,12 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
             pinned: true,
             floating: false,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            iconTheme: IconThemeData(
-                color: FlutterFlowTheme.of(context).tertiaryColor),
+            iconTheme:
+                IconThemeData(color: FlutterFlowTheme.of(context).tertiary),
             automaticallyImplyLeading: true,
             title: Text(
               'smartbags',
-              style: FlutterFlowTheme.of(context).title2.override(
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Work Sans',
                     color: FlutterFlowTheme.of(context).profit,
                   ),
@@ -83,7 +88,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                       child: Text(
                         'Create your smartbag',
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).title2,
+                        style: FlutterFlowTheme.of(context).headlineMedium,
                       ),
                     ),
                     Padding(
@@ -98,7 +103,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                 0.0, 0.0, 10.0, 0.0),
                             child: Text(
                               'Auto-execute trade',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                           FaIcon(
@@ -118,7 +123,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                         children: [
                           Text(
                             'Name your smartbag (mandatory)',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
@@ -150,7 +155,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                     hintText:
                                         'eg. Swiss Vacation or First Bike',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -195,7 +200,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Work Sans',
                                         fontSize: 20.0,
@@ -233,7 +238,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                               decoration: InputDecoration(
                                 hintText: 'Add Assets',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText2,
+                                    FlutterFlowTheme.of(context).bodySmall,
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -278,7 +283,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Work Sans',
                                     lineHeight: 1.5,
@@ -305,7 +310,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                         children: [
                           Text(
                             'Add a SELL Indicator for this smartbag',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -345,7 +350,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                   decoration: InputDecoration(
                                     hintText: '12% or 15% or 20%',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -390,7 +395,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Work Sans',
                                         lineHeight: 1.5,
@@ -419,7 +424,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                         children: [
                           Text(
                             'Add a timeline',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
@@ -463,15 +468,55 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Start Date',
+                                            valueOrDefault<String>(
+                                              _model.datePicked1?.toString(),
+                                              'Start Date',
+                                            ),
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2,
+                                                .titleSmall,
                                           ),
-                                          Icon(
-                                            Icons.date_range_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .profit,
-                                            size: 24.0,
+                                          InkWell(
+                                            onTap: () async {
+                                              final _datePicked1Date =
+                                                  await showDatePicker(
+                                                context: context,
+                                                initialDate:
+                                                    getCurrentTimestamp,
+                                                firstDate: DateTime(1900),
+                                                lastDate: DateTime(2050),
+                                              );
+
+                                              TimeOfDay? _datePicked1Time;
+                                              if (_datePicked1Date != null) {
+                                                _datePicked1Time =
+                                                    await showTimePicker(
+                                                  context: context,
+                                                  initialTime:
+                                                      TimeOfDay.fromDateTime(
+                                                          getCurrentTimestamp),
+                                                );
+                                              }
+
+                                              if (_datePicked1Date != null &&
+                                                  _datePicked1Time != null) {
+                                                setState(() {
+                                                  _model.datePicked1 = DateTime(
+                                                    _datePicked1Date.year,
+                                                    _datePicked1Date.month,
+                                                    _datePicked1Date.day,
+                                                    _datePicked1Time!.hour,
+                                                    _datePicked1Time.minute,
+                                                  );
+                                                });
+                                              }
+                                            },
+                                            child: Icon(
+                                              Icons.date_range_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .profit,
+                                              size: 24.0,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -500,15 +545,53 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'End Date',
+                                          valueOrDefault<String>(
+                                            _model.datePicked2?.toString(),
+                                            'End Date',
+                                          ),
                                           style: FlutterFlowTheme.of(context)
-                                              .subtitle2,
+                                              .titleSmall,
                                         ),
-                                        Icon(
-                                          Icons.date_range_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          size: 24.0,
+                                        InkWell(
+                                          onTap: () async {
+                                            final _datePicked2Date =
+                                                await showDatePicker(
+                                              context: context,
+                                              initialDate: getCurrentTimestamp,
+                                              firstDate: getCurrentTimestamp,
+                                              lastDate: DateTime(2050),
+                                            );
+
+                                            TimeOfDay? _datePicked2Time;
+                                            if (_datePicked2Date != null) {
+                                              _datePicked2Time =
+                                                  await showTimePicker(
+                                                context: context,
+                                                initialTime:
+                                                    TimeOfDay.fromDateTime(
+                                                        getCurrentTimestamp),
+                                              );
+                                            }
+
+                                            if (_datePicked2Date != null &&
+                                                _datePicked2Time != null) {
+                                              setState(() {
+                                                _model.datePicked2 = DateTime(
+                                                  _datePicked2Date.year,
+                                                  _datePicked2Date.month,
+                                                  _datePicked2Date.day,
+                                                  _datePicked2Time!.hour,
+                                                  _datePicked2Time.minute,
+                                                );
+                                              });
+                                            }
+                                          },
+                                          child: Icon(
+                                            Icons.date_range_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -532,7 +615,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                 0.0, 0.0, 10.0, 0.0),
                             child: Text(
                               'Add an SELL Indicator alert',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                           Icon(
@@ -555,13 +638,23 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                 0.0, 0.0, 10.0, 0.0),
                             child: Text(
                               'Auto-execute trade',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
-                          FaIcon(
-                            FontAwesomeIcons.rocket,
-                            color: FlutterFlowTheme.of(context).profit,
-                            size: 25.0,
+                          InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => IftttWidget(),
+                                ),
+                              );
+                            },
+                            child: FaIcon(
+                              FontAwesomeIcons.rocket,
+                              color: FlutterFlowTheme.of(context).profit,
+                              size: 25.0,
+                            ),
                           ),
                         ],
                       ),
@@ -574,8 +667,18 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              final bagsCreateData = {
+                                ...createBagsRecordData(
+                                  bagName: _model.textController1.text,
+                                  indicator:
+                                      int.tryParse(_model.textController3.text),
+                                ),
+                                'assets': [_model.textController2.text],
+                                'timeline': _model.datePicked1,
+                              };
+                              await BagsRecord.createDoc(currentUserReference!)
+                                  .set(bagsCreateData);
                             },
                             text: 'Save this smartbag',
                             options: FFButtonOptions(
@@ -585,23 +688,20 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).secondary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Work Sans',
                                     color: Colors.white,
                                   ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(20.0),
                               hoverColor: FlutterFlowTheme.of(context).profit,
-                              hoverBorderSide: BorderSide(
-                                width: 1.0,
-                              ),
                               hoverTextColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
