@@ -1,10 +1,12 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'auth/firebase_user_provider.dart';
+import 'auth/auth_util.dart';
+
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -36,6 +38,31 @@ class _MyAppState extends State<MyApp> {
   Locale? _locale;
   ThemeMode _themeMode = ThemeMode.system;
 
+  late Stream<EditedByVFirebaseUser> userStream;
+  EditedByVFirebaseUser? initialUser;
+  bool displaySplashImage = true;
+
+  final authUserSub = authenticatedUserStream.listen((_) {});
+
+  @override
+  void initState() {
+    super.initState();
+    userStream = editedByVFirebaseUserStream()
+      ..listen((user) => initialUser ?? setState(() => initialUser = user));
+    jwtTokenStream.listen((_) {});
+    Future.delayed(
+      Duration(seconds: 1),
+      () => setState(() => displaySplashImage = false),
+    );
+  }
+
+  @override
+  void dispose() {
+    authUserSub.cancel();
+
+    super.dispose();
+  }
+
   void setLocale(String language) {
     setState(() => _locale = createLocale(language));
   }
@@ -58,7 +85,21 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(brightness: Brightness.light),
       themeMode: _themeMode,
-      home: OnBoardingWidget(),
+      home: initialUser == null || displaySplashImage
+          ? Builder(
+              builder: (context) => Center(
+                child: SizedBox(
+                  width: 50.0,
+                  height: 50.0,
+                  child: CircularProgressIndicator(
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+                ),
+              ),
+            )
+          : currentUser!.loggedIn
+              ? OtpVerifyWidget()
+              : PhoneLoginWidget(),
     );
   }
 }

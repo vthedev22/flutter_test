@@ -2,6 +2,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/settings/settings_widget.dart';
+import '/user_dashboard/user_dashboard_widget.dart';
+import '/web_view_connect/web_view_connect_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -63,11 +66,16 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                     buttonSize: 60.0,
                     icon: Icon(
                       Icons.arrow_back_ios_outlined,
-                      color: FlutterFlowTheme.of(context).tertiaryColor,
+                      color: FlutterFlowTheme.of(context).tertiary,
                       size: 30.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SettingsWidget(),
+                        ),
+                      );
                     },
                   ),
                 ],
@@ -93,11 +101,12 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                         EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'smartbags',
-                      style: FlutterFlowTheme.of(context).title2.override(
-                            fontFamily: 'Work Sans',
-                            color: FlutterFlowTheme.of(context).profit,
-                            fontSize: 30.0,
-                          ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Work Sans',
+                                color: FlutterFlowTheme.of(context).profit,
+                                fontSize: 30.0,
+                              ),
                     ),
                   ),
                 ],
@@ -140,7 +149,7 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                                         'yourName',
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
-                                            .title3
+                                            .headlineSmall
                                             .override(
                                               fontFamily: 'Work Sans',
                                               fontSize: 18.0,
@@ -152,7 +161,7 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                                         child: Icon(
                                           Icons.mode_edit,
                                           color: FlutterFlowTheme.of(context)
-                                              .tertiaryColor,
+                                              .tertiary,
                                           size: 15.0,
                                         ),
                                       ),
@@ -170,12 +179,12 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                                           '+91 9999812345',
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText2
+                                              .bodySmall
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .tertiaryColor,
+                                                        .tertiary,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -186,7 +195,7 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                                           child: Icon(
                                             Icons.mode_edit,
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiaryColor,
+                                                .tertiary,
                                             size: 15.0,
                                           ),
                                         ),
@@ -205,12 +214,12 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                                           'email@some.domain',
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText2
+                                              .bodySmall
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .tertiaryColor,
+                                                        .tertiary,
                                                 fontWeight: FontWeight.normal,
                                                 fontStyle: FontStyle.italic,
                                               ),
@@ -222,7 +231,7 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                                           child: Icon(
                                             Icons.mode_edit,
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiaryColor,
+                                                .tertiary,
                                             size: 15.0,
                                           ),
                                         ),
@@ -246,8 +255,13 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WebViewConnectWidget(),
+                          ),
+                        );
                       },
                       text: 'Binance Connected',
                       options: FFButtonOptions(
@@ -257,12 +271,13 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        color: FlutterFlowTheme.of(context).tertiary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Work Sans',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
@@ -293,7 +308,7 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                   children: [
                     Text(
                       'Connect your DP',
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ],
                 ),
@@ -318,19 +333,17 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).profit,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Work Sans',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(20.0),
-                        hoverColor: FlutterFlowTheme.of(context).tertiaryColor,
-                        hoverBorderSide: BorderSide(
-                          width: 1.0,
-                        ),
+                        hoverColor: FlutterFlowTheme.of(context).tertiary,
                         hoverTextColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -358,19 +371,17 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).profit,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Work Sans',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(20.0),
-                        hoverColor: FlutterFlowTheme.of(context).tertiaryColor,
-                        hoverBorderSide: BorderSide(
-                          width: 1.0,
-                        ),
+                        hoverColor: FlutterFlowTheme.of(context).tertiary,
                         hoverTextColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -397,28 +408,30 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).highlight,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .subtitle2
-                            .override(
-                              fontFamily: 'Work Sans',
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                            ),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Work Sans',
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(30.0),
                         hoverColor: FlutterFlowTheme.of(context).profit,
-                        hoverBorderSide: BorderSide(
-                          width: 1.0,
-                        ),
                         hoverTextColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                       ),
                     ),
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => UserDashboardWidget(),
+                          ),
+                        );
                       },
                       text: 'Continue',
                       options: FFButtonOptions(
@@ -428,21 +441,19 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Work Sans',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(30.0),
                         hoverColor: FlutterFlowTheme.of(context).profit,
-                        hoverBorderSide: BorderSide(
-                          width: 1.0,
-                        ),
                         hoverTextColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                       ),

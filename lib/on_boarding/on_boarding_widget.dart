@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/settings/settings_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -68,7 +69,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                 child: Text(
                   'smartbags',
-                  style: FlutterFlowTheme.of(context).title2.override(
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Work Sans',
                         color: FlutterFlowTheme.of(context).profit,
                         fontSize: 40.0,
@@ -129,12 +130,12 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                                             'Create a Bag',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title1
+                                                .displaySmall
                                                 .override(
                                                   fontFamily: 'Work Sans',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiaryColor,
+                                                      .tertiary,
                                                   fontSize: 30.0,
                                                 ),
                                           ),
@@ -153,7 +154,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                                             'Placeholder Text',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2
+                                                .titleSmall
                                                 .override(
                                                   fontFamily: 'Work Sans',
                                                   color: FlutterFlowTheme.of(
@@ -203,12 +204,12 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                                             'Fill the Bag',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title1
+                                                .displaySmall
                                                 .override(
                                                   fontFamily: 'Work Sans',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiaryColor,
+                                                      .tertiary,
                                                   fontSize: 30.0,
                                                 ),
                                           ),
@@ -227,7 +228,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                                             'Placeholder Text',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2,
+                                                .titleSmall,
                                           ),
                                         ),
                                       ],
@@ -271,12 +272,12 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                                             'Execute the Bag',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title1
+                                                .displaySmall
                                                 .override(
                                                   fontFamily: 'Work Sans',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiaryColor,
+                                                      .tertiary,
                                                   fontSize: 30.0,
                                                 ),
                                           ),
@@ -295,7 +296,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                                             'Placeholder Text',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2,
+                                                .titleSmall,
                                           ),
                                         ),
                                       ],
@@ -350,8 +351,13 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingsWidget(),
+                      ),
+                    );
                   },
                   text: 'CONTINUE',
                   options: FFButtonOptions(
@@ -360,20 +366,18 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).secondaryColor,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    color: FlutterFlowTheme.of(context).secondary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Work Sans',
                           color: Colors.white,
                         ),
+                    elevation: 2.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(20.0),
                     hoverColor: FlutterFlowTheme.of(context).profit,
-                    hoverBorderSide: BorderSide(
-                      width: 1.0,
-                    ),
                     hoverTextColor:
                         FlutterFlowTheme.of(context).secondaryBackground,
                   ),

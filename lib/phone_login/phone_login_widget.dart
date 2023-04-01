@@ -1,8 +1,9 @@
+import '/auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/otp_verify/otp_verify_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -74,11 +75,12 @@ class _PhoneLoginWidgetState extends State<PhoneLoginWidget> {
                         EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'smartbags',
-                      style: FlutterFlowTheme.of(context).title2.override(
-                            fontFamily: 'Work Sans',
-                            color: FlutterFlowTheme.of(context).profit,
-                            fontSize: 40.0,
-                          ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Work Sans',
+                                color: FlutterFlowTheme.of(context).profit,
+                                fontSize: 40.0,
+                              ),
                     ),
                   ),
                 ],
@@ -107,7 +109,7 @@ class _PhoneLoginWidgetState extends State<PhoneLoginWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'Enter your 10-digit mobile number',
-                              hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                              hintStyle: FlutterFlowTheme.of(context).bodySmall,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -149,18 +151,15 @@ class _PhoneLoginWidgetState extends State<PhoneLoginWidget> {
                                 ),
                               ),
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Work Sans',
-                                      lineHeight: 1.5,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Work Sans',
+                                  lineHeight: 1.5,
+                                ),
                             textAlign: TextAlign.center,
-                            keyboardType: TextInputType.phone,
                             validator: _model.textControllerValidator
                                 .asValidator(context),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                            ],
                           ),
                         ),
                       ),
@@ -175,8 +174,32 @@ class _PhoneLoginWidgetState extends State<PhoneLoginWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        final phoneNumberVal = _model.textController.text;
+                        if (phoneNumberVal == null ||
+                            phoneNumberVal.isEmpty ||
+                            !phoneNumberVal.startsWith('+')) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                  'Phone Number is required and has to start with +.'),
+                            ),
+                          );
+                          return;
+                        }
+                        await beginPhoneAuth(
+                          context: context,
+                          phoneNumber: phoneNumberVal,
+                          onCodeSent: () async {
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => OtpVerifyWidget(),
+                              ),
+                              (r) => false,
+                            );
+                          },
+                        );
                       },
                       text: 'Continue',
                       options: FFButtonOptions(
@@ -186,21 +209,19 @@ class _PhoneLoginWidgetState extends State<PhoneLoginWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Work Sans',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(20.0),
                         hoverColor: FlutterFlowTheme.of(context).profit,
-                        hoverBorderSide: BorderSide(
-                          width: 1.0,
-                        ),
                         hoverTextColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                       ),

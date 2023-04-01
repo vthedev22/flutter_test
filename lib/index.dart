@@ -4,10 +4,10 @@ export '/phone_login/phone_login_widget.dart' show PhoneLoginWidget;
 export '/otp_verify/otp_verify_widget.dart' show OtpVerifyWidget;
 export '/on_boarding/on_boarding_widget.dart' show OnBoardingWidget;
 export '/settings/settings_widget.dart' show SettingsWidget;
-export '/settings_connected/settings_connected_widget.dart'
-    show SettingsConnectedWidget;
 export '/web_view_connect/web_view_connect_widget.dart'
     show WebViewConnectWidget;
+export '/settings_connected/settings_connected_widget.dart'
+    show SettingsConnectedWidget;
 export '/user_dashboard/user_dashboard_widget.dart' show UserDashboardWidget;
 export '/create_pie/create_pie_widget.dart' show CreatePieWidget;
 export '/ifttt/ifttt_widget.dart' show IftttWidget;

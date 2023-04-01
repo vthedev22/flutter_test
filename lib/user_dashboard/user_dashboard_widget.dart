@@ -1,3 +1,4 @@
+import '/create_pie/create_pie_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -49,12 +50,12 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
             pinned: true,
             floating: false,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            iconTheme: IconThemeData(
-                color: FlutterFlowTheme.of(context).tertiaryColor),
+            iconTheme:
+                IconThemeData(color: FlutterFlowTheme.of(context).tertiary),
             automaticallyImplyLeading: true,
             title: Text(
               'smartbags',
-              style: FlutterFlowTheme.of(context).title2.override(
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Work Sans',
                     color: FlutterFlowTheme.of(context).profit,
                   ),
@@ -109,7 +110,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                           'yourName',
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .title3
+                                              .headlineSmall
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 fontSize: 18.0,
@@ -132,7 +133,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                   Icons.settings,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiaryColor,
+                                                      .tertiary,
                                                   size: 20.0,
                                                 ),
                                               ),
@@ -141,13 +142,13 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                 textAlign: TextAlign.start,
                                                 style: FlutterFlowTheme.of(
                                                         context)
-                                                    .bodyText2
+                                                    .bodySmall
                                                     .override(
                                                       fontFamily: 'Work Sans',
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .tertiaryColor,
+                                                              .tertiary,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                       fontStyle:
@@ -167,47 +168,47 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                         ],
                       ),
                     ),
+                    FFButtonWidget(
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CreatePieWidget(),
+                          ),
+                        );
+                      },
+                      text: 'Create your smartbag',
+                      options: FFButtonOptions(
+                        width: 280.0,
+                        height: 60.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).profit,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Work Sans',
+                                  color: Colors.white,
+                                ),
+                        elevation: 2.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(20.0),
+                        hoverColor: FlutterFlowTheme.of(context).secondary,
+                        hoverTextColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: 'Create your smartbag',
-                            options: FFButtonOptions(
-                              width: 280.0,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).profit,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
-                                    fontFamily: 'Work Sans',
-                                    color: Colors.white,
-                                  ),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(20.0),
-                              hoverColor:
-                                  FlutterFlowTheme.of(context).secondaryColor,
-                              hoverBorderSide: BorderSide(
-                                width: 1.0,
-                              ),
-                              hoverTextColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                     Padding(
@@ -220,7 +221,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                           Text(
                             'Your have',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -229,7 +230,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                               'numBag',
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Work Sans',
                                     fontSize: 16.0,
@@ -239,7 +240,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                           Text(
                             'saved Bag(s)',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
@@ -294,7 +295,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText2
+                                                      .bodySmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color: FlutterFlowTheme
@@ -310,7 +311,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                           '9999999.23',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .title2
+                                              .headlineMedium
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 color:
@@ -345,10 +346,10 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiaryColor,
+                                                      .tertiary,
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
-                                                      .subtitle2
+                                                      .titleSmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color:
@@ -357,6 +358,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                                 .lineColor,
                                                         fontSize: 13.0,
                                                       ),
+                                                  elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
@@ -368,13 +370,10 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .highlight,
-                                                  hoverBorderSide: BorderSide(
-                                                    width: 1.0,
-                                                  ),
                                                   hoverTextColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .tertiaryColor,
+                                                          .tertiary,
                                                 ),
                                               ),
                                               Text(
@@ -382,13 +381,13 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)
-                                                    .title1
+                                                    .displaySmall
                                                     .override(
                                                       fontFamily: 'Work Sans',
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .tertiaryColor,
+                                                              .tertiary,
                                                       fontSize: 30.0,
                                                     ),
                                               ),
@@ -412,17 +411,18 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       .highlight,
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
-                                                      .subtitle2
+                                                      .titleSmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .tertiaryColor,
+                                                                .tertiary,
                                                         fontSize: 18.0,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),
+                                                  elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
@@ -433,10 +433,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                   hoverColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .tertiaryColor,
-                                                  hoverBorderSide: BorderSide(
-                                                    width: 1.0,
-                                                  ),
+                                                          .tertiary,
                                                   hoverTextColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -450,7 +447,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                           'Invested Value',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText2
+                                              .bodySmall
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 color:
@@ -466,7 +463,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                             '98362727.67',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title2
+                                                .headlineMedium
                                                 .override(
                                                   fontFamily: 'Work Sans',
                                                   color: FlutterFlowTheme.of(
@@ -498,7 +495,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                             width: 350.0,
                             height: 170.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              color: FlutterFlowTheme.of(context).tertiary,
                               borderRadius: BorderRadius.circular(50.0),
                             ),
                             child: Row(
@@ -533,7 +530,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText2
+                                                      .bodySmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color: FlutterFlowTheme
@@ -549,7 +546,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                           '9999999.23',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .title2
+                                              .headlineMedium
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 color:
@@ -587,11 +584,12 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       .alternate,
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
-                                                      .subtitle2
+                                                      .titleSmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color: Colors.white,
                                                       ),
+                                                  elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
@@ -603,9 +601,6 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .profit,
-                                                  hoverBorderSide: BorderSide(
-                                                    width: 1.0,
-                                                  ),
                                                   hoverTextColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -617,7 +612,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)
-                                                    .title1
+                                                    .displaySmall
                                                     .override(
                                                       fontFamily: 'Work Sans',
                                                       color:
@@ -647,12 +642,13 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       .profit,
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
-                                                      .subtitle2
+                                                      .titleSmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color: Colors.white,
                                                         fontSize: 13.0,
                                                       ),
+                                                  elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
@@ -664,13 +660,10 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .highlight,
-                                                  hoverBorderSide: BorderSide(
-                                                    width: 1.0,
-                                                  ),
                                                   hoverTextColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .tertiaryColor,
+                                                          .tertiary,
                                                 ),
                                               ),
                                             ],
@@ -680,7 +673,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                           'Invested Value',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText2
+                                              .bodySmall
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 color:
@@ -696,7 +689,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                             '98362727.67',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title2
+                                                .headlineMedium
                                                 .override(
                                                   fontFamily: 'Work Sans',
                                                   color: FlutterFlowTheme.of(
@@ -728,7 +721,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                             width: 350.0,
                             height: 170.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              color: FlutterFlowTheme.of(context).tertiary,
                               borderRadius: BorderRadius.circular(50.0),
                             ),
                             child: Row(
@@ -763,7 +756,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText2
+                                                      .bodySmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color: FlutterFlowTheme
@@ -779,7 +772,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                           '9999999.23',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .title2
+                                              .headlineMedium
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 color:
@@ -817,11 +810,12 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       .alternate,
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
-                                                      .subtitle2
+                                                      .titleSmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color: Colors.white,
                                                       ),
+                                                  elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
@@ -833,9 +827,6 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .profit,
-                                                  hoverBorderSide: BorderSide(
-                                                    width: 1.0,
-                                                  ),
                                                   hoverTextColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -847,7 +838,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)
-                                                    .title1
+                                                    .displaySmall
                                                     .override(
                                                       fontFamily: 'Work Sans',
                                                       color:
@@ -877,12 +868,13 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       .profit,
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
-                                                      .subtitle2
+                                                      .titleSmall
                                                       .override(
                                                         fontFamily: 'Work Sans',
                                                         color: Colors.white,
                                                         fontSize: 13.0,
                                                       ),
+                                                  elevation: 2.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
@@ -894,13 +886,10 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .highlight,
-                                                  hoverBorderSide: BorderSide(
-                                                    width: 1.0,
-                                                  ),
                                                   hoverTextColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .tertiaryColor,
+                                                          .tertiary,
                                                 ),
                                               ),
                                             ],
@@ -910,7 +899,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                           'Invested Value',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText2
+                                              .bodySmall
                                               .override(
                                                 fontFamily: 'Work Sans',
                                                 color:
@@ -926,7 +915,7 @@ class _UserDashboardWidgetState extends State<UserDashboardWidget> {
                                             '98362727.67',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title2
+                                                .headlineMedium
                                                 .override(
                                                   fontFamily: 'Work Sans',
                                                   color: FlutterFlowTheme.of(

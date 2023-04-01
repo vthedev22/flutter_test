@@ -53,12 +53,12 @@ class _IftttWidgetState extends State<IftttWidget> {
             pinned: true,
             floating: false,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            iconTheme: IconThemeData(
-                color: FlutterFlowTheme.of(context).tertiaryColor),
+            iconTheme:
+                IconThemeData(color: FlutterFlowTheme.of(context).tertiary),
             automaticallyImplyLeading: true,
             title: Text(
               'smartbags',
-              style: FlutterFlowTheme.of(context).title2.override(
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Work Sans',
                     color: FlutterFlowTheme.of(context).profit,
                   ),
@@ -82,7 +82,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                       child: Text(
                         'Create your auto-execute',
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).title2,
+                        style: FlutterFlowTheme.of(context).headlineMedium,
                       ),
                     ),
                     Padding(
@@ -94,7 +94,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                         children: [
                           Text(
                             'IF',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
@@ -125,7 +125,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                                   decoration: InputDecoration(
                                     hintText: 'Select Bag Value',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -170,7 +170,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Work Sans',
                                         fontSize: 20.0,
@@ -195,7 +195,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                         children: [
                           Text(
                             'THEN',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
@@ -226,7 +226,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                                   decoration: InputDecoration(
                                     hintText: '12% or 15% or 20%',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -271,7 +271,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                                     ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Work Sans',
                                         lineHeight: 1.5,
@@ -300,7 +300,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                         children: [
                           Text(
                             'Add a timeline',
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
@@ -346,7 +346,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                                           Text(
                                             'Start Date',
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2,
+                                                .titleSmall,
                                           ),
                                           Icon(
                                             Icons.date_range_outlined,
@@ -383,7 +383,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                                         Text(
                                           'End Date',
                                           style: FlutterFlowTheme.of(context)
-                                              .subtitle2,
+                                              .titleSmall,
                                         ),
                                         Icon(
                                           Icons.date_range_outlined,
@@ -413,7 +413,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                                 0.0, 0.0, 10.0, 0.0),
                             child: Text(
                               'Add an SELL Indicator alert',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                           Icon(
@@ -436,7 +436,7 @@ class _IftttWidgetState extends State<IftttWidget> {
                                 0.0, 0.0, 10.0, 0.0),
                             child: Text(
                               'Auto-execute trade',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                           FaIcon(
@@ -466,23 +466,20 @@ class _IftttWidgetState extends State<IftttWidget> {
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).secondary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Work Sans',
                                     color: Colors.white,
                                   ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(20.0),
                               hoverColor: FlutterFlowTheme.of(context).profit,
-                              hoverBorderSide: BorderSide(
-                                width: 1.0,
-                              ),
                               hoverTextColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),

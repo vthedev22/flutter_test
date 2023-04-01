@@ -1,6 +1,8 @@
+import '/auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/on_boarding/on_boarding_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -74,11 +76,12 @@ class _OtpVerifyWidgetState extends State<OtpVerifyWidget> {
                         EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'smartbags',
-                      style: FlutterFlowTheme.of(context).title2.override(
-                            fontFamily: 'Work Sans',
-                            color: FlutterFlowTheme.of(context).profit,
-                            fontSize: 40.0,
-                          ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Work Sans',
+                                color: FlutterFlowTheme.of(context).profit,
+                                fontSize: 40.0,
+                              ),
                     ),
                   ),
                 ],
@@ -91,14 +94,14 @@ class _OtpVerifyWidgetState extends State<OtpVerifyWidget> {
                   children: [
                     Text(
                       'Enter OTP sent to your',
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'phone number',
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
                   ],
@@ -128,7 +131,7 @@ class _OtpVerifyWidgetState extends State<OtpVerifyWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'Enter OTP',
-                              hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                              hintStyle: FlutterFlowTheme.of(context).bodySmall,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -170,11 +173,12 @@ class _OtpVerifyWidgetState extends State<OtpVerifyWidget> {
                                 ),
                               ),
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Work Sans',
-                                      lineHeight: 1.5,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Work Sans',
+                                  lineHeight: 1.5,
+                                ),
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.visiblePassword,
                             validator: _model.textControllerValidator
@@ -196,8 +200,30 @@ class _OtpVerifyWidgetState extends State<OtpVerifyWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        final smsCodeVal = _model.textController.text;
+                        if (smsCodeVal == null || smsCodeVal.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Enter SMS verification code.'),
+                            ),
+                          );
+                          return;
+                        }
+                        final phoneVerifiedUser = await verifySmsCode(
+                          context: context,
+                          smsCode: smsCodeVal,
+                        );
+                        if (phoneVerifiedUser == null) {
+                          return;
+                        }
+
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OnBoardingWidget(),
+                          ),
+                        );
                       },
                       text: 'Continue',
                       options: FFButtonOptions(
@@ -207,21 +233,19 @@ class _OtpVerifyWidgetState extends State<OtpVerifyWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Work Sans',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(20.0),
                         hoverColor: FlutterFlowTheme.of(context).profit,
-                        hoverBorderSide: BorderSide(
-                          width: 1.0,
-                        ),
                         hoverTextColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                       ),
