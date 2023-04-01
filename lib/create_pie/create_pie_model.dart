@@ -1,3 +1,4 @@
+import '/add_stocks/add_stocks_widget.dart';
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -21,9 +22,6 @@ class CreatePieModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
   DateTime? datePicked1;
   DateTime? datePicked2;
 
@@ -34,7 +32,6 @@ class CreatePieModel extends FlutterFlowModel {
   void dispose() {
     textController1?.dispose();
     textController2?.dispose();
-    textController3?.dispose();
   }
 
   /// Additional helper methods are added here.

@@ -1,3 +1,4 @@
+import '/add_stocks/add_stocks_widget.dart';
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -34,7 +35,6 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
 
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
-    _model.textController3 ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -228,74 +228,35 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                 .secondaryBackground,
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 15.0, 15.0, 15.0),
-                            child: TextFormField(
-                              controller: _model.textController2,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                hintText: 'Add Assets',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AddStocksWidget(),
                                 ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
+                              );
+                            },
+                            text: 'Add assets',
+                            options: FFButtonOptions(
+                              width: 130.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Work Sans',
-                                    lineHeight: 1.5,
+                                    color: Colors.white,
                                   ),
-                              textAlign: TextAlign.center,
-                              keyboardType: TextInputType.number,
-                              validator: _model.textController2Validator
-                                  .asValidator(context),
-                              inputFormatters: [
-                                FilteringTextInputFormatter.allow(
-                                    RegExp('[0-9]'))
-                              ],
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
@@ -344,7 +305,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 15.0, 15.0, 15.0),
                                 child: TextFormField(
-                                  controller: _model.textController3,
+                                  controller: _model.textController2,
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -402,7 +363,7 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                                       ),
                                   textAlign: TextAlign.center,
                                   keyboardType: TextInputType.number,
-                                  validator: _model.textController3Validator
+                                  validator: _model.textController2Validator
                                       .asValidator(context),
                                   inputFormatters: [
                                     FilteringTextInputFormatter.allow(
@@ -668,15 +629,13 @@ class _CreatePieWidgetState extends State<CreatePieWidget> {
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              final bagsCreateData = {
-                                ...createBagsRecordData(
-                                  bagName: _model.textController1.text,
-                                  indicator:
-                                      int.tryParse(_model.textController3.text),
-                                ),
-                                'assets': [_model.textController2.text],
-                                'timeline': _model.datePicked1,
-                              };
+                              final bagsCreateData = createBagsRecordData(
+                                bagName: _model.textController1.text,
+                                indicator:
+                                    int.tryParse(_model.textController2.text),
+                                startTime: _model.datePicked1,
+                                endTime: _model.datePicked2,
+                              );
                               await BagsRecord.createDoc(currentUserReference!)
                                   .set(bagsCreateData);
                             },

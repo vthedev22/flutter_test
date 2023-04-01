@@ -26,14 +26,6 @@ class _$BagsRecordSerializer implements StructuredSerializer<BagsRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.assets;
-    if (value != null) {
-      result
-        ..add('assets')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
-    }
     value = object.indicator;
     if (value != null) {
       result
@@ -87,12 +79,6 @@ class _$BagsRecordSerializer implements StructuredSerializer<BagsRecord> {
           result.bagName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'assets':
-          result.assets.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object?>);
-          break;
         case 'indicator':
           result.indicator = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
@@ -126,8 +112,6 @@ class _$BagsRecord extends BagsRecord {
   @override
   final String? bagName;
   @override
-  final BuiltList<String>? assets;
-  @override
   final int? indicator;
   @override
   final bool? isAutoTrade;
@@ -143,7 +127,6 @@ class _$BagsRecord extends BagsRecord {
 
   _$BagsRecord._(
       {this.bagName,
-      this.assets,
       this.indicator,
       this.isAutoTrade,
       this.startTime,
@@ -163,7 +146,6 @@ class _$BagsRecord extends BagsRecord {
     if (identical(other, this)) return true;
     return other is BagsRecord &&
         bagName == other.bagName &&
-        assets == other.assets &&
         indicator == other.indicator &&
         isAutoTrade == other.isAutoTrade &&
         startTime == other.startTime &&
@@ -175,7 +157,6 @@ class _$BagsRecord extends BagsRecord {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, bagName.hashCode);
-    _$hash = $jc(_$hash, assets.hashCode);
     _$hash = $jc(_$hash, indicator.hashCode);
     _$hash = $jc(_$hash, isAutoTrade.hashCode);
     _$hash = $jc(_$hash, startTime.hashCode);
@@ -189,7 +170,6 @@ class _$BagsRecord extends BagsRecord {
   String toString() {
     return (newBuiltValueToStringHelper(r'BagsRecord')
           ..add('bagName', bagName)
-          ..add('assets', assets)
           ..add('indicator', indicator)
           ..add('isAutoTrade', isAutoTrade)
           ..add('startTime', startTime)
@@ -205,11 +185,6 @@ class BagsRecordBuilder implements Builder<BagsRecord, BagsRecordBuilder> {
   String? _bagName;
   String? get bagName => _$this._bagName;
   set bagName(String? bagName) => _$this._bagName = bagName;
-
-  ListBuilder<String>? _assets;
-  ListBuilder<String> get assets =>
-      _$this._assets ??= new ListBuilder<String>();
-  set assets(ListBuilder<String>? assets) => _$this._assets = assets;
 
   int? _indicator;
   int? get indicator => _$this._indicator;
@@ -239,7 +214,6 @@ class BagsRecordBuilder implements Builder<BagsRecord, BagsRecordBuilder> {
     final $v = _$v;
     if ($v != null) {
       _bagName = $v.bagName;
-      _assets = $v.assets?.toBuilder();
       _indicator = $v.indicator;
       _isAutoTrade = $v.isAutoTrade;
       _startTime = $v.startTime;
@@ -265,28 +239,14 @@ class BagsRecordBuilder implements Builder<BagsRecord, BagsRecordBuilder> {
   BagsRecord build() => _build();
 
   _$BagsRecord _build() {
-    _$BagsRecord _$result;
-    try {
-      _$result = _$v ??
-          new _$BagsRecord._(
-              bagName: bagName,
-              assets: _assets?.build(),
-              indicator: indicator,
-              isAutoTrade: isAutoTrade,
-              startTime: startTime,
-              endTime: endTime,
-              ffRef: ffRef);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'assets';
-        _assets?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'BagsRecord', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$BagsRecord._(
+            bagName: bagName,
+            indicator: indicator,
+            isAutoTrade: isAutoTrade,
+            startTime: startTime,
+            endTime: endTime,
+            ffRef: ffRef);
     replace(_$result);
     return _$result;
   }

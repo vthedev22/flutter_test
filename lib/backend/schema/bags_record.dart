@@ -11,13 +11,13 @@ abstract class BagsRecord implements Built<BagsRecord, BagsRecordBuilder> {
 
   String? get bagName;
 
-  BuiltList<String>? get assets;
-
   int? get indicator;
 
-  BuiltList<DateTime>? get timeline;
-
   bool? get isAutoTrade;
+
+  DateTime? get startTime;
+
+  DateTime? get endTime;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -27,9 +27,7 @@ abstract class BagsRecord implements Built<BagsRecord, BagsRecordBuilder> {
 
   static void _initializeBuilder(BagsRecordBuilder builder) => builder
     ..bagName = ''
-    ..assets = ListBuilder()
     ..indicator = 0
-    ..timeline = ListBuilder()
     ..isAutoTrade = false;
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -61,16 +59,18 @@ Map<String, dynamic> createBagsRecordData({
   String? bagName,
   int? indicator,
   bool? isAutoTrade,
+  DateTime? startTime,
+  DateTime? endTime,
 }) {
   final firestoreData = serializers.toFirestore(
     BagsRecord.serializer,
     BagsRecord(
       (b) => b
         ..bagName = bagName
-        ..assets = null
         ..indicator = indicator
-        ..timeline = null
-        ..isAutoTrade = isAutoTrade,
+        ..isAutoTrade = isAutoTrade
+        ..startTime = startTime
+        ..endTime = endTime,
     ),
   );
 

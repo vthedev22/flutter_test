@@ -9,10 +9,7 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ApiRecord.serializer)
       ..add(BagsRecord.serializer)
-      ..add(UsersRecord.serializer)
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>()))
+      ..add(UsersRecord.serializer))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint
