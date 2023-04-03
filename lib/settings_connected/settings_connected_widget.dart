@@ -2,7 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/settings/settings_widget.dart';
+import '/on_boarding/on_boarding_widget.dart';
 import '/user_dashboard/user_dashboard_widget.dart';
 import '/web_view_connect/web_view_connect_widget.dart';
 import 'package:flutter/material.dart';
@@ -49,53 +49,46 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFF0F2F1),
+        iconTheme: IconThemeData(color: Color(0xFF393F59)),
+        automaticallyImplyLeading: true,
+        leading: InkWell(
+          onTap: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => OnBoardingWidget(),
+              ),
+            );
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+            size: 24.0,
+          ),
+        ),
+        title: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+          child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  FlutterFlowIconButton(
-                    borderColor: Colors.transparent,
-                    borderRadius: 30.0,
-                    borderWidth: 1.0,
-                    buttonSize: 60.0,
-                    icon: Icon(
-                      Icons.arrow_back_ios_outlined,
-                      color: FlutterFlowTheme.of(context).tertiary,
-                      size: 30.0,
-                    ),
-                    onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SettingsWidget(),
-                        ),
-                      );
-                    },
-                  ),
-                ],
+              Container(
+                width: 40.0,
+                height: 40.0,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(
+                  'assets/images/logo-sp.svg',
+                  fit: BoxFit.cover,
+                ),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 40.0,
-                    height: 40.0,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/images/logo-sp.svg',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
@@ -111,6 +104,20 @@ class _SettingsConnectedWidgetState extends State<SettingsConnectedWidget> {
                   ),
                 ],
               ),
+            ],
+          ),
+        ),
+        actions: [],
+        centerTitle: true,
+        elevation: 4.0,
+      ),
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                 child: Row(

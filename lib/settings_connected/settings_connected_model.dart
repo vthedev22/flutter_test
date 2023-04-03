@@ -2,7 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/settings/settings_widget.dart';
+import '/on_boarding/on_boarding_widget.dart';
 import '/user_dashboard/user_dashboard_widget.dart';
 import '/web_view_connect/web_view_connect_widget.dart';
 import 'package:flutter/material.dart';

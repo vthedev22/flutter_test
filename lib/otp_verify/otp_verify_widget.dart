@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/on_boarding/on_boarding_widget.dart';
+import '/phone_login/phone_login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -48,6 +49,37 @@ class _OtpVerifyWidgetState extends State<OtpVerifyWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFF0F2F1),
+        iconTheme: IconThemeData(color: Color(0xFF393F59)),
+        automaticallyImplyLeading: true,
+        leading: InkWell(
+          onTap: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PhoneLoginWidget(),
+              ),
+            );
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+            size: 24.0,
+          ),
+        ),
+        title: Text(
+          'OTP verification',
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Work Sans',
+                color: Color(0xFF00C561),
+                fontSize: 22.0,
+              ),
+        ),
+        actions: [],
+        centerTitle: true,
+        elevation: 4.0,
+      ),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -218,11 +250,12 @@ class _OtpVerifyWidgetState extends State<OtpVerifyWidget> {
                           return;
                         }
 
-                        await Navigator.push(
+                        await Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
                             builder: (context) => OnBoardingWidget(),
                           ),
+                          (r) => false,
                         );
                       },
                       text: 'Continue',
