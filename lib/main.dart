@@ -98,7 +98,7 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser!.loggedIn
-              ? OtpVerifyWidget()
+              ? OnBoardingWidget()
               : PhoneLoginWidget(),
     );
   }

@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>11297906909-kbuh9s8p4v8e8nhrcfth4ko9is2dt0di.apps.googleusercontent.com</string>
+	<string>975360659495-j2fgnrh05t1ik2ocb3drflcn6h6obdkc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.11297906909-kbuh9s8p4v8e8nhrcfth4ko9is2dt0di</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>11297906909-gmpcjelb1p4bp0hbbb5moc0ejmfpdml8.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.975360659495-j2fgnrh05t1ik2ocb3drflcn6h6obdkc</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAetXrmW34qoyWBuImXYBEpyVxI5MNaUo8</string>
+	<string>AIzaSyB9lRf-ESvLZNnq9rzx0iXiGa4GTsXkTso</string>
 	<key>GCM_SENDER_ID</key>
-	<string>11297906909</string>
+	<string>975360659495</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.mycompany.editedbyv</string>
 	<key>PROJECT_ID</key>
-	<string>test-e495b</string>
+	<string>spokepie</string>
 	<key>STORAGE_BUCKET</key>
-	<string>test-e495b.appspot.com</string>
+	<string>spokepie.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:11297906909:ios:de03a1340a7f1aea41bb34</string>
+	<string>1:975360659495:ios:7ac28f64e28371f561fe02</string>
 </dict>
 </plist>
